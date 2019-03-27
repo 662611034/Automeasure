@@ -104,7 +104,8 @@ class ZNB:
 	def end(self):
 		self.inst.close()
 		# self.rm.close()
-		
+
+# signal generator
 class N5183:
 	
 	def __init__(self, address):
@@ -142,6 +143,7 @@ class N5183:
 		self.inst.close()
 		# self.rm.close()
 
+# signal analyzer
 class N9030:
 	
 	def __init__(self, address):
@@ -180,6 +182,9 @@ class N9030:
 		self.inst.write(f"CALC:MARK{marknum}:MAX")
 		return self
 		
+	def savepng(self, filepath):
+		self.inst(f'MMEM:STOR:SCR "{filepath}"')
+
 	def end(self):
 		self.inst.close()
 		# self.rm.close()
