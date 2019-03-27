@@ -1,10 +1,9 @@
 import visa
-import ASCIIcollection as AA
+
 class N6705:
 			
 	def __init__(self, address):
-		self.rm = visa.ResourceManager()
-		self.inst = self.rm.open_resource(address)
+		self.inst = visa.ResourceManager().open_resource(address)
 		self.inst.write_termination = '\n'
 		self.inst.clear()
 		self.ID=self.inst.query("*IDN?")
@@ -43,8 +42,7 @@ class N6705:
 class ZNB:
 	
 	def __init__(self, address):
-		self.rm = visa.ResourceManager()
-		self.inst = self.rm.open_resource(address)
+		self.inst = visa.ResourceManager().open_resource(address)
 		self.inst.write_termination = '\n'
 		self.inst.clear()
 		self.ID=self.inst.query("*IDN?")
@@ -104,8 +102,7 @@ class ZNB:
 class N5183:
 	
 	def __init__(self, address):
-		self.rm = visa.ResourceManager()
-		self.inst = self.rm.open_resource(address)
+		self.inst = visa.ResourceManager().open_resource(address)
 		self.inst.write_termination = '\n'
 		self.inst.clear()
 		self.ID=self.inst.query("*IDN?")
@@ -141,8 +138,7 @@ class N5183:
 class N9030:
 	
 	def __init__(self, address):
-		self.rm = visa.ResourceManager()
-		self.inst = self.rm.open_resource(address)
+		self.inst = visa.ResourceManager().open_resource(address)
 		self.inst.write_termination = '\n'
 		self.inst.clear()
 		self.ID=self.inst.query("*IDN?")
