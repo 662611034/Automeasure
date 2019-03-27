@@ -183,7 +183,7 @@ class N9030:
 		return self
 		
 	def savepng(self, filepath):
-		self.inst(f'MMEM:STOR:SCR "{filepath}"')
+		self.inst.write(f'MMEM:STOR:SCR "{filepath}"')
 
 	def end(self):
 		self.inst.close()
