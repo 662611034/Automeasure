@@ -2,7 +2,7 @@
 // only nakami
 
 {
-	Lvi.Visa.Interop.ResourceManager RM;
+	Ivi.Visa.Interop.ResourceManager RM;
 	Ivi.Visa.Interop.FormattedIO488 DMM;
 
 	RM = new Ivi.Visa.Interop.ResourceManager();
