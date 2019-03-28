@@ -1,14 +1,17 @@
 import visa
-import ASCIIcollection as AA
+# import ASCIIcollection as AA
 
+rm=visa.ResourceManager()
+
+# Close ResourceManager
 def RMclose():
-	visa.ResourceManager().close()
+	rm.close()
 
+# Power
 class N6705:
 			
 	def __init__(self, address):
-		self.rm = visa.ResourceManager()
-		self.inst = self.rm.open_resource(address)
+		self.inst = rm.open_resource(address)
 		self.inst.write_termination = '\n'
 		self.inst.clear()
 		self.ID=self.inst.query("*IDN?")
@@ -17,9 +20,6 @@ class N6705:
 		self.inst.write("*RST")
 		return self
 		
-	# def IDcheck(self):
-		# return self.inst.query("*IDN?")
-	
 	def setVolt(self, volt, chan='1:4'):
 		self.inst.write(f"VOLT {volt}, (@{chan})")
 		return self
@@ -41,14 +41,12 @@ class N6705:
 	
 	def end(self):
 		self.inst.close()
-		# self.rm.close()
 
-		
+# Network analyzer		
 class ZNB:
 	
 	def __init__(self, address):
-		self.rm = visa.ResourceManager()
-		self.inst = self.rm.open_resource(address)
+		self.inst = rm.open_resource(address)
 		self.inst.write_termination = '\n'
 		self.inst.clear()
 		self.ID=self.inst.query("*IDN?")
@@ -57,9 +55,6 @@ class ZNB:
 		self.inst.write("*RST")
 		return self
 	
-	# def IDcheck(self):
-		# return self.inst.query("*IDN?")
-
 	def savecsv(self, path, chan=1):
 		self.inst.write(f"MMEMory:STORe:TRACe:CHAN {chan},'{path}', FORM, LOGP")
 		return self
@@ -103,14 +98,12 @@ class ZNB:
 	
 	def end(self):
 		self.inst.close()
-		# self.rm.close()
 
-# signal generator
+# Signal generator
 class N5183:
 	
 	def __init__(self, address):
-		self.rm = visa.ResourceManager()
-		self.inst = self.rm.open_resource(address)
+		self.inst = rm.open_resource(address)
 		self.inst.write_termination = '\n'
 		self.inst.clear()
 		self.ID=self.inst.query("*IDN?")
@@ -119,9 +112,6 @@ class N5183:
 		self.inst.write("*RST")
 		return self
 	
-	# def IDcheck(self):
-		# return self.inst.query("*IDN?")
-			
 	def setPower(self, power):
 		self.inst.write(f'POW {power}dBm')
 		return self
@@ -141,14 +131,12 @@ class N5183:
 	
 	def end(self):
 		self.inst.close()
-		# self.rm.close()
 
-# signal analyzer
+# Signal analyzer
 class N9030:
 	
 	def __init__(self, address):
-		self.rm = visa.ResourceManager()
-		self.inst = self.rm.open_resource(address)
+		self.inst = rm.open_resource(address)
 		self.inst.write_termination = '\n'
 		self.inst.clear()
 		self.ID=self.inst.query("*IDN?")
@@ -157,9 +145,6 @@ class N9030:
 		self.inst.write("*RST")
 		return self
 	
-	# def IDcheck(self):
-		# return self.inst.query("*IDN?")
-		
 	def makeMark(self, marknum=1):
 		self.inst.write(f'CALC:MARK{marknum}:STAT ON')
 		return self
@@ -187,4 +172,3 @@ class N9030:
 
 	def end(self):
 		self.inst.close()
-		# self.rm.close()
