@@ -119,6 +119,12 @@ class N5183:
 	def setFreq(self, freq):
 		self.inst.write(f'FREQ:FIX {freq}GHz')
 		return self
+
+	def readPower(self):
+		return self.inst.query("POW?")
+
+	def readFreq(self):
+		return self.inst.query("FREQ:FIX?")
 		
 	def conOut(self, con=1):
 		if int(con)==1:
