@@ -4,6 +4,8 @@ rm = visa.ResourceManager()  # おまじないです
 
 # GPIBでつながったアドレス29の測定器を呼び出します
 hoge = rm.open_resource("GPIB::29::INSTR")
+# LAN接続なら "TCPIP::192.168.0.86::INSTR"
+# USB接続なら "USB::~~::~~::~~::~::INSTR"
 
 # 以下2行もおまじないです
 hoge.write_termination = "\n"
