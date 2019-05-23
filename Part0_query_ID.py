@@ -2,7 +2,8 @@ import visa  # おまじないです
 import time  # 待機時間を作るために必要な部分です
 rm = visa.ResourceManager()  # おまじないです
 
-hoge = rm.open_resource("GPIB::29::INSTR")  # 測定器を
+# GPIBでつながったアドレス29の測定器を呼び出します
+hoge = rm.open_resource("GPIB::29::INSTR")
 
 # 以下2行もおまじないです
 hoge.write_termination = "\n"
