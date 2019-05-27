@@ -2,7 +2,7 @@ import visa  # おまじないです
 import time  # 待機時間を作るために必要な部分です
 rm = visa.ResourceManager()  # おまじないです
 
-# GPIBでつながったアドレス29の測定器を呼び出します
+# GPIBでつながったアドレス29の測定器を'hoge'として呼び出します
 hoge = rm.open_resource("GPIB::29::INSTR")
 # LAN接続なら "TCPIP::192.168.0.86::INSTR"
 # USB接続なら "USB::~~::~~::~~::~::INSTR"
