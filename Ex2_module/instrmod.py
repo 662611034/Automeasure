@@ -59,7 +59,7 @@ class N6705(Instrument):
 class ZNB(Instrument):
 
     # マイドキュメントのパス
-    path_mydoc = "C:\Users\\Instrument\\Documents"
+    path_mydoc = "C:\\Users\\Instrument\\Documents"
     
     # 画面上の全てのトレースを.csv形式で保存
     def save_csv(self, path, chan=1):
