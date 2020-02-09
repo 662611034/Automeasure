@@ -7,7 +7,7 @@ use std::str::from_utf8;
 fn main() {
     match TcpStream::connect("192.168.0.11:5025") {
         Ok(mut stream) => {
-            println!("Successfully connected to server in port 3333");
+            println!("Successfully connected to server in port 5025");
 
             let msg = b"*IDN?\n";
 
