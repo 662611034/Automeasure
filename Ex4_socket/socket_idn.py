@@ -12,6 +12,6 @@ s.connect(("192.168.0.11", 5025))
 s.send("*IDN?\n".encode())
 id = s.recv(64)
 
-print(id.decode("utf_8"))
+print(id.decode())
 
 s.close()
