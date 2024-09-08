@@ -1,4 +1,5 @@
-import visa  # visa利用を宣言
+# import visa  # visa利用を宣言
+import pyvisa as visa  # pyvisaの仕様変更
 
 # ResourceManagerを「rm」として生成
 rm = visa.ResourceManager()
