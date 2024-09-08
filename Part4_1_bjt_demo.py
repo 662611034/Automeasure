@@ -1,5 +1,6 @@
 # 8行までの文法はID確認のプログラムと同様
-import visa
+# import visa
+import pyvisa as visa  # pyvisaの仕様変更
 
 rm = visa.ResourceManager()
 
