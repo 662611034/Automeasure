@@ -1,4 +1,5 @@
-import visa  # おまじないです
+# import visa  # おまじないです
+import pyvisa as visa  # pyvisaの仕様変更
 import time  # 待機時間を作るために必要な部分です
 rm = visa.ResourceManager()  # おまじないです
 
